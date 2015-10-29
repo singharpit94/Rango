@@ -25,12 +25,15 @@ def index(request):
     context_dict = {'categories': category_list}
 
     # Render the response and send it back!
-    return render(request, 'rango1/index.html', context_dict)
+    return render(request, 'rango/index.html', context_dict)
 
 def about(request):
-    return HttpResponse("<a href='/rango1/'>Index</a>")
+    return HttpResponse("<a href='/rango/'>Index</a>")
 
+def sammita(request):
+    context = {'name': "Sammita"}
 
+    return render(request, 'rango/name.html', context)
 
 def add_page(request, category_name_slug):
 
@@ -109,5 +112,5 @@ def add_category(request):
 
     # Bad form (or form details), no form supplied...
     # Render the form with error messages (if any).
-    return render(request, 'rango1/add_category.html', {'form': form})
+    return render(request, 'rango/add_category.html', {'form': form})
 
